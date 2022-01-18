@@ -5,6 +5,7 @@
   - [Bonus: Further Operators for Lookahead *](#bonus-further-operators-for-lookahead-)
   - [Bonus: Size Difference of two Search Results *](#bonus-size-difference-of-two-search-results-)
   - [Combine Streams *](#combine-streams-)
+  - [Bonus: combineLatest vs. withLatestFrom](#bonus-combinelatest-vs-withlatestfrom)
   - [Bonus: Search by from and to **](#bonus-search-by-from-and-to-)
   - [Bonus: Refresh Button ***](#bonus-refresh-button-)
   - [Error Handling *](#error-handling-)
@@ -13,6 +14,9 @@
   - [Custom Operator: switchMapCompensate *](#custom-operator-switchmapcompensate-)
   - [Bonus: Custom Operator: switchMapRetry **](#bonus-custom-operator-switchmapretry-)
   - [Bonus: Custom Operator: switchMapBackoff for Exponential Backoff **](#bonus-custom-operator-switchmapbackoff-for-exponential-backoff-)
+
+
+**Note:** For this lab, please use the **flight-app** in our starter kit.
 
 ## Simple Lookahead 
 
@@ -145,6 +149,31 @@ As you see in this URL, the API takes an parameter for filtering flights with re
 
     </p>
     </details>
+
+    **Hint:** If, and only if, you don't use the official WebAPI but something like json server, use the following parameter to search for Berlin, e. g.: ``from_like=^Berlin``
+
+    <details>
+    <summary>Show code</summary>
+    <p>
+
+    ```typescript
+    load(from: string)  {
+        const url = "http://localhost:3000/flight";
+
+        const params = new HttpParams()
+                            .set('from_like', '^'+from);
+
+        const headers = new HttpHeaders()
+                            .set('Accept', 'application/json');
+
+        return this.http.get<Flight[]>(url, {params, headers});
+
+    };
+    ```
+
+    </p>
+    </details>
+    
 
 8. Use the ``constructor`` to establish the needed dataflow between your input control  (property ``control``) and your result (``flights$``).
 
@@ -356,6 +385,23 @@ In this example, you'll introduce another observable that simulates the network 
 
 2. Test your solution.
 
+
+## Bonus: combineLatest vs. withLatestFrom
+
+Change your solution to use withLatestFrom instead of combineLatest. Please note that withLatestFrom **isn't** a creation operator (factory) but called within ``pipe``:
+
+```typescript
+this.flights$ = input$.pipe(
+    withLatestFrom(this.online$),
+    filter(([, online]) => online),
+    map(([input,]) => input),
+    tap(() => this.loading = true),
+    switchMap(name => this.load(name)),
+    tap(() => this.loading = false)
+);
+```
+
+Find out, how your application behaves differently now.
 
 ## Bonus: Search by from and to **
 

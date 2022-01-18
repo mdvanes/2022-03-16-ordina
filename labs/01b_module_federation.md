@@ -323,7 +323,6 @@ This was quite easy, wasn't it? However, we can improve this solution a bit. Ide
     }
     ```
 
-<<<<<<< HEAD
 7. Switch to the ``index.ts`` of your ``auth-lib`` and make sure that the ``AuthLibService`` is exported:
 
     ```typescript
@@ -332,15 +331,6 @@ This was quite easy, wasn't it? However, we can improve this solution a bit. Ide
     export * from './lib/auth-lib.service';
     ```
 
-=======
-7. Add the service to the `index.ts` of the module.
-
-  ```typescript
-  export * from './lib/shared-auth-lib.module';
-  export { AuthLibService } from './lib/auth-lib.service';
-  ```
->>>>>>> f2685f63352026c96ae57cecafe2b6d99424e016
-
 8. Switch to your `flight-app` project and open its `app.component.ts`. Use the shared `AuthLibService` to login a user:
 
     ```typescript
@@ -348,7 +338,7 @@ This was quite easy, wasn't it? However, we can improve this solution a bit. Ide
     import { AuthLibService } from '@flight-workspace/shared/auth-lib';
 
     @Component({
-        selector: 'app-root',
+        selector: 'flight-app',
         templateUrl: './app.component.html'
     })
     export class AppComponent {
@@ -396,8 +386,8 @@ In this section, we load web components via module federation. This allows us, t
 
 1. Install the tooling library ``@angular-architects/module-federation-tools``:
 
-    ```
-    npm i @angular-architects/module-federation-tools
+    ``` 
+    npm i @angular-architects/module-federation-tools --force
     ```
 
 2. Restart your IDE 

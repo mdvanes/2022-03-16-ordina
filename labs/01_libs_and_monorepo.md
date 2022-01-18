@@ -75,7 +75,7 @@ You can follow these steps:
 
 4. Switch back to the application (folder `flight-app/src/app/flight-booking`) and create an `AirportComponent`.  Implement these files in the same way as the files for the `FlightSearchComponent` so that they list all the airports.
    
-    **Hint**: To generate the files needed, run the following command in your project's root: 
+    **Hint**: To generate the files needed, run the following command in your project's **root**: 
     ```
     ng generate component flight-booking/airport --project flight-app
     ```
@@ -230,7 +230,7 @@ In this example, you will look at the included ``logger-lib``.
 
 5. Look at the files `ng-package.*` in the `logger-lib` folder.
 
-6. Open the file `tsconfig.json` and find out that there is a path mapping for the `logger-lib`.
+6. Open the file `tsconfig.base.json` in your monorepo's root and find out that there is a path mapping for the `logger-lib`.
 
 7. Open the ``flight-app``'s `AppModule` and import the ``logger-lib`` into it.
 
