@@ -24,7 +24,7 @@ import { DashboardLibModule } from '@flight-workspace/dashboard-lib';
       BrowserAnimationsModule,
       HttpClientModule,
       SharedModule.forRoot(),
-      RouterModule.forRoot(APP_ROUTES, { relativeLinkResolution: 'legacy' }),
+      RouterModule.forRoot(APP_ROUTES),
       DemoModule,
       CustomCheckboxModule,
       DashboardTileModule,

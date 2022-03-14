@@ -8,6 +8,6 @@ describe('external', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to external!');
+    getGreeting().contains('Welcome external');
   });
 });

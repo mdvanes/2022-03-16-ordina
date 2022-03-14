@@ -1,90 +1,25 @@
 {
   "npmScope": "flight-workspace",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
   },
   "implicitDependencies": {
-    "angular.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
     },
-    "tsconfig.base.json": "*",
-    "tslint.json": "*",
-    ".eslintrc.json": "*",
-    "nx.json": "*"
+    ".eslintrc.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "--cacheDirectory": "c:\\temp\\cache"
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
-    }
-  },
-  "--tasksRunnerOptions": {
-    "default": {
-      "runner": "./tools/task-runners/custom-task-runner",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "remoteDirectory": "c:\\temp\\remote-cache"
-      }
-    }
-  },
-  "projects": {
-    "dashboard": {
-      "tags": ["domain:dashboard"]
-    },
-    "dashboard-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["dashboard"]
-    },
-    "dashboard-lib": {
-      "tags": ["domain:dashboard", "type:domain-logic"]
-    },
-    "external": {
-      "tags": ["domain:external"]
-    },
-    "external-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["external"]
-    },
-    "flight-admin": {
-      "tags": ["domain:flights"]
-    },
-    "flight-admin-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["flight-admin"]
-    },
-    "flight-app": {
-      "tags": ["domain:flights"]
-    },
-    "flight-app-e2e": {
-      "tags": ["e2e"],
-      "implicitDependencies": ["flight-app"]
-    },
-    "flight-lib": {
-      "tags": ["domain:flights", "type:domain-logic"]
-    },
-    "logger-lib": {
-      "tags": ["domain:shared"]
-    },
-    "passenger": {
-      "tags": ["domain:passenger", "type:app"]
-    },
-    "passenger-domain": {
-      "tags": ["domain:passenger", "type:domain-logic"]
-    },
-    "passenger-e2e": {
-      "tags": [],
-      "implicitDependencies": ["passenger"]
-    },
-    "passenger-feature-edit": {
-      "tags": ["domain:passenger", "type:feature"]
-    },
-    "passenger-feature-search": {
-      "tags": ["domain:passenger", "type:feature"]
     }
   },
   "targetDependencies": {
@@ -94,5 +29,21 @@
         "projects": "dependencies"
       }
     ]
-  }
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  },
+  "defaultProject": "flight-app"
 }
