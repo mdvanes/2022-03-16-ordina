@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthLibService } from '@flight-workspace/shared/auth-lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -19,7 +20,10 @@ export class HomeComponent implements OnInit {
     return this._userName;
   }
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private authService: AuthLibService
+  ) {}
 
   changed($event: CustomEvent): void {
     console.debug('$event.detail ', $event.detail);
@@ -39,5 +43,6 @@ export class HomeComponent implements OnInit {
 
   logout(): void {
     this._userName = '';
+    this.authService.userName = 'Max';
   }
 }

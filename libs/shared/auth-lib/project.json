@@ -1,0 +1,33 @@
+{
+  "root": "libs/shared/auth-lib",
+  "sourceRoot": "libs/shared/auth-lib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/auth-lib",
+        "main": "libs/shared/auth-lib/src/index.ts",
+        "tsConfig": "libs/shared/auth-lib/tsconfig.lib.json",
+        "assets": ["libs/shared/auth-lib/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/auth-lib/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/auth-lib"],
+      "options": {
+        "jestConfig": "libs/shared/auth-lib/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["domain:shared", "type:util"]
+}
