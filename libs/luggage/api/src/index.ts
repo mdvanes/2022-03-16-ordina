@@ -1,1 +1,3 @@
-export * from './lib/luggage-api.module';
+import { Luggage, CheckinFacade } from '@flight-workspace/luggage/domain';
+
+export { Luggage, CheckinFacade } from '@flight-workspace/luggage/domain';

@@ -16,7 +16,15 @@
                 "sourceTag": "domain:luggage",
                 "onlyDependOnLibsWithTags": ["domain:luggage", "domain:shared"]
               },
-              {"sourceTag":  "type:feature", "onlyDependOnLibsWithTags": ["type:ui", "type:domain-logic"]},
+              {
+                "sourceTag": "domain:luggage:api",
+                "onlyDependOnLibsWithTags": ["domain:luggage"]
+              },
+              {"sourceTag":  "domain:boarding", "onlyDependOnLibsWithTags": ["domain:boarding", "domain:luggage:api"]},
+
+
+              {"sourceTag": "type:api", "onlyDependOnLibsWithTags":  ["type:feature", "type:domain-logic", "type:util", "type:ui"]},
+              {"sourceTag":  "type:feature", "onlyDependOnLibsWithTags": ["type:ui", "type:domain-logic", "type:util", "type:api"]},
 
               {"sourceTag":  "type:ui", "onlyDependOnLibsWithTags": ["type:domain-logic"]},
               {"sourceTag":  "type:domain-logic", "onlyDependOnLibsWithTags": ["type:util"]}
