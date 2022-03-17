@@ -69,10 +69,19 @@ affected can be prefixed to anything, like lint, test, etc, but before calling a
 - iframe: very good isolation (too good), does not look nice, can't interact with each other
 - native module federation. use the tools because to much overhead otherwise
 - zone.js patches dom events and async tasks for Angular to tell Angular when those events have finished so Angular can rerender. Zone can only run once per DOM.
+- @angular-architects/module-federation-tools
+- dynamic federation! loadRemoteModule() instead of import()
+- scam: single component angular module
 
-# Questions:
+## Questions:
 
 - ANSWERED Yarn vs NPM in monorepos: nx overwrites ng and in general can't rely on cached modules sometimes.
 - ANSWERED How to deal with monorepo where not all devs are allowed to change all modules? How to deal with PRs on that code? -> git code ownership plugin, Bjorn (https://nx.dev/guides/monorepo-nx-enterprise
 ), Bamboo has some sort of solution? Google: small commits, code owner who is charge of MRs/PRs should be small
 - ANSWERED How to deal with slow repo's, slow builds/tests etc (affected?): affected can be prefixed to anything, like lint, test, etc, but before calling affected:build, fill the cache: npx nx build luggage --with-deps
+
+# Evening meetup: angularBootstrap
+
+Render standalone components without @NgModule. Using angularBootrap(); / @Component?
+
+View again: https://www.youtube.com/watch?v=gpNQIy5GXtw
