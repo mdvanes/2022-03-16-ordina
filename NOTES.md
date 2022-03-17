@@ -51,10 +51,28 @@ Alternatives: Hexagonal architecture, clean architecture
 
 - use npx to prefix `ng` commands
 - npx ng dep-graph
+- npx nx affected:dep-graph 
+- npx nx affected:libs
+- npx nx lint luggage-feature-checkin
+
+affected can be prefixed to anything, like lint, test, etc, but before calling affected:build, fill the cache: npx nx build luggage --with-deps
+
+## Microfrontends 14:30
+
+- avoid until necessary
+- npm libraries
+- web components
+- list of benefits: autonomous teams, separate development, sep deployment, own architecture & tech decisions. BUT don't overdo it!
+- only use diverging technologies when you are forced (e.g. legacy). Learn from "Scottish news paper"
+- you can use "hyperlink" for MFE.
+- MFE integration shell to manage MFEs. SPA Shell app. Single SPA, Luigi  (iframe), Zoid (iframe)
+- iframe: very good isolation (too good), does not look nice, can't interact with each other
+- native module federation. use the tools because to much overhead otherwise
+- zone.js patches dom events and async tasks for Angular to tell Angular when those events have finished so Angular can rerender. Zone can only run once per DOM.
 
 # Questions:
 
 - ANSWERED Yarn vs NPM in monorepos: nx overwrites ng and in general can't rely on cached modules sometimes.
-- How to deal with monorepo where not all devs are allowed to change all modules? How to deal with PRs on that code?
-- How to deal with slow repo's, slow builds/tests etc (affected?)
-
+- ANSWERED How to deal with monorepo where not all devs are allowed to change all modules? How to deal with PRs on that code? -> git code ownership plugin, Bjorn (https://nx.dev/guides/monorepo-nx-enterprise
+), Bamboo has some sort of solution? Google: small commits, code owner who is charge of MRs/PRs should be small
+- ANSWERED How to deal with slow repo's, slow builds/tests etc (affected?): affected can be prefixed to anything, like lint, test, etc, but before calling affected:build, fill the cache: npx nx build luggage --with-deps
