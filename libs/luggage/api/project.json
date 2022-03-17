@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/luggage/api",
+  "sourceRoot": "libs/luggage/api/src",
+  "prefix": "flight-workspace",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/luggage/api"],
+      "options": {
+        "jestConfig": "libs/luggage/api/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/luggage/api/src/**/*.ts",
+          "libs/luggage/api/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:luggage:api", "type:api"]
+}

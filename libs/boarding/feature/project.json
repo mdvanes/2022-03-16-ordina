@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/boarding/feature",
+  "sourceRoot": "libs/boarding/feature/src",
+  "prefix": "flight-workspace",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/boarding/feature"],
+      "options": {
+        "jestConfig": "libs/boarding/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/boarding/feature/src/**/*.ts",
+          "libs/boarding/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
