@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { FlightLibModule } from '@flight-workspace/flight-lib';
 
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
@@ -24,7 +23,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     BrowserAnimationsModule,
     FlightCancellingModule,
 
-    FlightLibModule.forRoot(),
     SharedModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES),
   ],
@@ -33,9 +31,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     SidebarComponent,
     NavbarComponent,
     HomeComponent,
-    BasketComponent
+    BasketComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
