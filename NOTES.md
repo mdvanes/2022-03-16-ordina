@@ -50,6 +50,7 @@ Alternatives: Hexagonal architecture, clean architecture
 ### Lab 01b_nx_DDD
 
 - use npx to prefix `ng` commands
+- npx ng dep-graph
 
 # Questions:
 
